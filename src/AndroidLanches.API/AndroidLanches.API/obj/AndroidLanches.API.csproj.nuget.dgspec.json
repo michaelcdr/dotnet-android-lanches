@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projetos\\AndroidLanches.API\\AndroidLanches.API\\AndroidLanches.API.csproj": {}
+    "D:\\Projetos\\dotnet-android-lanches\\src\\AndroidLanches.API\\AndroidLanches.API\\AndroidLanches.API.csproj": {}
   },
   "projects": {
-    "D:\\Projetos\\AndroidLanches.API\\AndroidLanches.API\\AndroidLanches.API.csproj": {
+    "D:\\Projetos\\dotnet-android-lanches\\src\\AndroidLanches.API\\AndroidLanches.API\\AndroidLanches.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projetos\\AndroidLanches.API\\AndroidLanches.API\\AndroidLanches.API.csproj",
+        "projectUniqueName": "D:\\Projetos\\dotnet-android-lanches\\src\\AndroidLanches.API\\AndroidLanches.API\\AndroidLanches.API.csproj",
         "projectName": "AndroidLanches.API",
-        "projectPath": "D:\\Projetos\\AndroidLanches.API\\AndroidLanches.API\\AndroidLanches.API.csproj",
+        "projectPath": "D:\\Projetos\\dotnet-android-lanches\\src\\AndroidLanches.API\\AndroidLanches.API\\AndroidLanches.API.csproj",
         "packagesPath": "C:\\Users\\michael\\.nuget\\packages\\",
-        "outputPath": "D:\\Projetos\\AndroidLanches.API\\AndroidLanches.API\\obj\\",
+        "outputPath": "D:\\Projetos\\dotnet-android-lanches\\src\\AndroidLanches.API\\AndroidLanches.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -41,19 +41,17 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
+            "Dapper": {
               "target": "Package",
-              "version": "[3.1.9, )"
+              "version": "[2.0.35, )"
             },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
+            "Microsoft.AspNetCore.Mvc.Versioning": {
               "target": "Package",
-              "version": "[3.1.9, )"
+              "version": "[4.1.1, )"
             },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
+            "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[3.1.9, )"
+              "version": "[5.6.3, )"
             }
           },
           "imports": [

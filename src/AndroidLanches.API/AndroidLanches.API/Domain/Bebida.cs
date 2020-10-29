@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace AndroidLanches.API.Domain
+﻿namespace AndroidLanches.API.Domain
 {
     public class Bebida:Produto
     {

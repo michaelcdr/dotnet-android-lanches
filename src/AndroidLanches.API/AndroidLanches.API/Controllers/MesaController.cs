@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AndroidLanches.API.Domain;
+﻿using AndroidLanches.API.Domain;
 using AndroidLanches.API.Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
 
 namespace AndroidLanches.API.Controllers
 {

@@ -1,9 +1,6 @@
 ﻿using AndroidLanches.API.Domain;
 using AndroidLanches.API.Domain.Repositories;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AndroidLanches.API.Infra.Repositories
 {
@@ -13,9 +10,19 @@ namespace AndroidLanches.API.Infra.Repositories
         {
 
         }
+
         public List<Pedido> ObterTodosPedidosSemPagamentoEfetuado()
         {
             var pedidos = new List<Pedido>();
+            return pedidos;
+        }
+
+        public List<Pedido> ObterTodos()
+        {
+            var pedidos = new List<Pedido>();
+            pedidos.Add(new Pedido(1, false, new Mesa(10)));
+            pedidos.Add(new Pedido(2, false, new Mesa(11)));
+            pedidos.Add(new Pedido(3, false, new Mesa(12)));
             return pedidos;
         }
 
