@@ -1,0 +1,9 @@
+D:\Projetos\dotnet-android-lanches\src\AndroidLanches.Domain\AndroidLanches.Domain\bin\Debug\netcoreapp3.1\AndroidLanches.Domain.deps.json
+D:\Projetos\dotnet-android-lanches\src\AndroidLanches.Domain\AndroidLanches.Domain\bin\Debug\netcoreapp3.1\AndroidLanches.Domain.dll
+D:\Projetos\dotnet-android-lanches\src\AndroidLanches.Domain\AndroidLanches.Domain\bin\Debug\netcoreapp3.1\AndroidLanches.Domain.pdb
+D:\Projetos\dotnet-android-lanches\src\AndroidLanches.Domain\AndroidLanches.Domain\obj\Debug\netcoreapp3.1\AndroidLanches.Domain.csprojAssemblyReference.cache
+D:\Projetos\dotnet-android-lanches\src\AndroidLanches.Domain\AndroidLanches.Domain\obj\Debug\netcoreapp3.1\AndroidLanches.Domain.AssemblyInfoInputs.cache
+D:\Projetos\dotnet-android-lanches\src\AndroidLanches.Domain\AndroidLanches.Domain\obj\Debug\netcoreapp3.1\AndroidLanches.Domain.AssemblyInfo.cs
+D:\Projetos\dotnet-android-lanches\src\AndroidLanches.Domain\AndroidLanches.Domain\obj\Debug\netcoreapp3.1\AndroidLanches.Domain.csproj.CoreCompileInputs.cache
+D:\Projetos\dotnet-android-lanches\src\AndroidLanches.Domain\AndroidLanches.Domain\obj\Debug\netcoreapp3.1\AndroidLanches.Domain.dll
+D:\Projetos\dotnet-android-lanches\src\AndroidLanches.Domain\AndroidLanches.Domain\obj\Debug\netcoreapp3.1\AndroidLanches.Domain.pdb

@@ -1,22 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
-using AndroidLanches.API.Domain;
 using AndroidLanches.API.Domain.Repositories;
-using AndroidLanches.API.Infra.Repositories;
+using AndroidLanches.Domain.Infra;
+using AndroidLanches.Domain.Repositories;
+using AndroidLanches.Infra.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.Swagger;
+using System;
+using System.IO;
+using System.Reflection;
 
 
 namespace AndroidLanches.API
@@ -33,9 +28,12 @@ namespace AndroidLanches.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            IConfigurationSection dbConnectionSettings = DatabaseConnection.ConnectionConfiguration.GetSection("ConnectionStrings");
+
             services.AddControllers();
             services.AddTransient<IPedidos,Pedidos>();
-
+            services.AddTransient<IMesas, Mesas>();
             services.AddSwaggerGen(config =>
             {
                 config.SwaggerDoc("v1", new OpenApiInfo
@@ -66,6 +64,8 @@ namespace AndroidLanches.API
                 options.AssumeDefaultVersionWhenUnspecified = true;
                 options.ReportApiVersions = true;
             });
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

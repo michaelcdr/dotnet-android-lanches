@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
 
@@ -21,7 +20,8 @@ namespace AndroidLanches.Config
                 var criador = new CriadorBancoDeDados(configuration);
                 await criador.Criar();
 
-                Console.WriteLine("BANCO DE DADOS CRIADO COM SUCESSO");
+
+                
             }
             catch (Exception ex)
             {

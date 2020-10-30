@@ -61,9 +61,9 @@ namespace AndroidLanches.Config
                     comando.Connection = conn;
                     comando.CommandText = sqlCreateTableMesa + sqlCreateTableProduto + sqlCreatePedidos + sqlCreatePedidosItens;
                     await comando.ExecuteNonQueryAsync();
+                    Console.WriteLine("BANCO DE DADOS CRIADO COM SUCESSO");
                 }
             }
-            
         }
     }
 }
