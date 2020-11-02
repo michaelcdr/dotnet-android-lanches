@@ -10,15 +10,17 @@
         "projectUniqueName": "D:\\Projetos\\dotnet-android-lanches\\src\\AndroidLanches.API\\AndroidLanches.API\\AndroidLanches.API.csproj",
         "projectName": "AndroidLanches.API",
         "projectPath": "D:\\Projetos\\dotnet-android-lanches\\src\\AndroidLanches.API\\AndroidLanches.API\\AndroidLanches.API.csproj",
-        "packagesPath": "C:\\Users\\michael\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
         "outputPath": "D:\\Projetos\\dotnet-android-lanches\\src\\AndroidLanches.API\\AndroidLanches.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\michael\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -75,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -85,15 +87,17 @@
         "projectUniqueName": "D:\\Projetos\\dotnet-android-lanches\\src\\AndroidLanches.Domain\\AndroidLanches.Domain\\AndroidLanches.Domain.csproj",
         "projectName": "AndroidLanches.Domain",
         "projectPath": "D:\\Projetos\\dotnet-android-lanches\\src\\AndroidLanches.Domain\\AndroidLanches.Domain\\AndroidLanches.Domain.csproj",
-        "packagesPath": "C:\\Users\\michael\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
         "outputPath": "D:\\Projetos\\dotnet-android-lanches\\src\\AndroidLanches.Domain\\AndroidLanches.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\michael\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -130,7 +134,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -140,15 +144,17 @@
         "projectUniqueName": "D:\\Projetos\\dotnet-android-lanches\\src\\AndroidLanches.Infra\\AndroidLanches.Infra\\AndroidLanches.Infra.csproj",
         "projectName": "AndroidLanches.Infra",
         "projectPath": "D:\\Projetos\\dotnet-android-lanches\\src\\AndroidLanches.Infra\\AndroidLanches.Infra\\AndroidLanches.Infra.csproj",
-        "packagesPath": "C:\\Users\\michael\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
         "outputPath": "D:\\Projetos\\dotnet-android-lanches\\src\\AndroidLanches.Infra\\AndroidLanches.Infra\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\michael\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -223,7 +229,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

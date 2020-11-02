@@ -29,8 +29,6 @@ namespace AndroidLanches.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            IConfigurationSection dbConnectionSettings = DatabaseConnection.ConnectionConfiguration.GetSection("ConnectionStrings");
-
             services.AddControllers();
             
             //services.AddScoped<IDatabaseFactory, MySqlDatabaseFactory>();         // usando mysql
@@ -58,7 +56,6 @@ namespace AndroidLanches.API
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 config.IncludeXmlComments(xmlPath);
-
                 //config.OperationFilter<FormFileSwaggerFilter>();
             });
 
@@ -68,17 +65,12 @@ namespace AndroidLanches.API
                 options.AssumeDefaultVersionWhenUnspecified = true;
                 options.ReportApiVersions = true;
             });
-
-            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            if (env.IsDevelopment())  app.UseDeveloperExceptionPage();
 
             app.UseHttpsRedirection();
 

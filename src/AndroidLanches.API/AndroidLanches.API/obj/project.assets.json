@@ -5656,7 +5656,7 @@
       ]
     },
     "System.Text.Encoding.CodePages/4.4.0": {
-      "sha512": "6JX7ZdaceBiLKLkYt8zJcp4xTJd1uYyXXEkPw6mnlUIjh1gZPIVKPtRXPmY5kLf6DwZmf5YLwR3QUrRonl7l0A==",
+      "sha512": "FpAgMC+BX6OOCiRebYqHP3r3aYU7o0lopPOo4zKyGc5LWXFEYRUaKtoXXvAJ3sP+IDOK/KBxZaiVAdi+QdZ0TA==",
       "type": "package",
       "path": "system.text.encoding.codepages/4.4.0",
       "files": [
@@ -6441,7 +6441,8 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\michael\\.nuget\\packages\\": {},
+    "C:\\Users\\micha\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -6450,15 +6451,17 @@
       "projectUniqueName": "D:\\Projetos\\dotnet-android-lanches\\src\\AndroidLanches.API\\AndroidLanches.API\\AndroidLanches.API.csproj",
       "projectName": "AndroidLanches.API",
       "projectPath": "D:\\Projetos\\dotnet-android-lanches\\src\\AndroidLanches.API\\AndroidLanches.API\\AndroidLanches.API.csproj",
-      "packagesPath": "C:\\Users\\michael\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
       "outputPath": "D:\\Projetos\\dotnet-android-lanches\\src\\AndroidLanches.API\\AndroidLanches.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\michael\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -6515,7 +6518,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
