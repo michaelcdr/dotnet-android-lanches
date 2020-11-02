@@ -11,7 +11,7 @@ namespace AndroidLanches.Infra.Repositories
 {
     public class Mesas : IMesas
     {
-        private  IDbConnection _dbConnection;
+        private IDbConnection _dbConnection;
         private readonly IDatabaseFactory _databaseFactory;
         public Mesas() { }
 
@@ -47,6 +47,12 @@ namespace AndroidLanches.Infra.Repositories
         {
             int quantidade = await ObterConexao().QuerySingleAsync<int>("select count(mesaid) from mesas");
             return quantidade > 1;
+        }
+
+        public async Task<bool> Existe(int numero)
+        {
+            bool existe = await ObterConexao().QuerySingleAsync<bool>("select CAST(COUNT(*) AS BIT) FROM Mesas where numero = @numero;", new { numero });
+            return existe;
         }
     }
 }

@@ -9,5 +9,6 @@ namespace AndroidLanches.API.Domain.Repositories
         Task<List<Mesa>> ObterDesocupadas();
         Task Adicionar(Mesa mesa);
         Task<bool> TemAoMenosUma();
+        Task<bool> Existe(int numero);
     }
 }

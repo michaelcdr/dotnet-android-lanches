@@ -25,18 +25,28 @@ namespace AndroidLanches.API.Controllers
         /// Retorna uma lista de mesas disponiveis
         /// </summary>
         /// <returns></returns>
-        [HttpGet, Route("")]
+        [HttpGet, Route("Desocupadas")]
         public async Task<IEnumerable<Mesa>> ObterDesocupadas()
         {
             return await _mesas.ObterDesocupadas();
         }
+
+        //[HttpGet, Route("")]
+        //public async Task<IEnumerable<Mesa>> ObterTodas()
+        //{
+        //    return await _mesas.ObterTodas();
+        //}
 
         [HttpPost, Route("")]
         public async Task<IActionResult> Post(int numero)
         {
             try
             {
-                await _mesas.Adicionar(new Mesa(numero));
+                if (!await _mesas.Existe(numero))
+                    await _mesas.Adicionar(new Mesa(numero));
+                else
+                    return BadRequest(new { erro = $"Já existe uma mesa com o número {numero}." });
+
                 return Created("", new { });
             }
             catch (Exception ex)
@@ -57,8 +67,12 @@ namespace AndroidLanches.API.Controllers
             try
             {
                 if (!await _mesas.TemAoMenosUma())
+                {
                     for (int i = 1; i <= numeroDeMesas; i++)
                         await _mesas.Adicionar(new Mesa(i));
+                }
+                else
+                    return BadRequest(new { erro = "A lista de mesas já foi gerada." });
 
                 return Created("", new { });
             }

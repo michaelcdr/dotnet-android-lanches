@@ -36,6 +36,7 @@ namespace AndroidLanches.API
             services.AddTransient<ICriadorBancoDeDados, CriadorBancoDeDadosSqlServer>();
             services.AddTransient<IPedidos,Pedidos>();
             services.AddTransient<IMesas, Mesas>();
+            services.AddTransient<IProdutos, Produtos>();
             services.AddSwaggerGen(config =>
             {
                 config.SwaggerDoc("v1", new OpenApiInfo
