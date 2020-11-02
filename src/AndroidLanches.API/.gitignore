@@ -1,4 +1,4 @@
-.vs
+/.vs
 src/AndroidLanches.API/.vs/
 src/AndroidLanches.Domain/.vs/
 src/AndroidLanches.Infra/.vs/
