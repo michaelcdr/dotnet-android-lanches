@@ -5,11 +5,11 @@ using Microsoft.Extensions.Logging;
 namespace AndroidLanches.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("v1/pedidos")]
     public class PedidoController : ControllerBase
     {
-        private  ILogger<PedidoController> _logger;
-        private  IPedidos _pedidos;
+        private ILogger<PedidoController> _logger;
+        private IPedidos _pedidos;
 
         public PedidoController(ILogger<PedidoController> logger, IPedidos pedidos)
         {

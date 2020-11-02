@@ -1,5 +1,4 @@
-﻿using AndroidLanches.API.Domain.Repositories;
-using AndroidLanches.Domain.Entities;
+﻿using AndroidLanches.Domain.Entities;
 using AndroidLanches.Domain.Repositories;
 using AndroidLanches.Infra.DBConfiguration;
 using Dapper;
@@ -61,6 +60,22 @@ namespace AndroidLanches.Infra.Repositories
                     produto.Tipo,
                     produto.ServeQuantasPessoas
                 });
+        }
+
+        public async Task<List<Bebida>> ObterBebidas()
+        {
+            return (await ObterConexao().QueryAsync<Bebida>(
+                "SELECT produtoId, nome, descricao, preco, foto, embalagem, tipo " +
+                "FROM Produtos WHERE tipo = 'bebida' ORDER BY nome"
+            )).ToList();
+        }
+
+        public async Task<List<Prato>> ObterPratos()
+        {
+            return (await ObterConexao().QueryAsync<Prato>(
+                "SELECT produtoId, nome, descricao, preco, foto, serveQuantasPessoas, tipo " +
+                "FROM produtos WHERE tipo = 'prato' ORDER BY nome"
+            )).ToList();
         }
     }
 }

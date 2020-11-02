@@ -1,7 +1,5 @@
 ﻿using AndroidLanches.Domain.Entities;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace AndroidLanches.Domain.Repositories
@@ -10,5 +8,7 @@ namespace AndroidLanches.Domain.Repositories
     {
         Task AdicionarBebida(Bebida produto);
         Task AdicionarPrato(Prato produto);
+        Task<List<Bebida>> ObterBebidas();
+        Task<List<Prato>> ObterPratos();
     }
 }

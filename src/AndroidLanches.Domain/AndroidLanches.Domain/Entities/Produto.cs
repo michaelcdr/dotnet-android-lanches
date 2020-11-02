@@ -11,13 +11,6 @@ namespace AndroidLanches.Domain.Entities
         public string Foto { get; protected set; }
         public string Tipo { get; protected set; }
 
-        public Produto() { }
-
-        public Produto(string nome, String descricao, double preco)
-        {
-            this.Nome = nome;
-            this.Descricao = descricao;
-            this.Preco = preco;
-        }
+        protected Produto() { }
     }
 }

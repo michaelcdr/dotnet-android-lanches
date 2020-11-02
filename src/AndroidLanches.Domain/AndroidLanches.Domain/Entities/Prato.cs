@@ -4,6 +4,8 @@
     {
         public int ServeQuantasPessoas { get; private set; }
 
+        protected Prato() { }
+        
         public Prato(string nome, string descricao, double preco, int serveQuantasPessoas, string foto)
         {
             this.Tipo = "prato";
