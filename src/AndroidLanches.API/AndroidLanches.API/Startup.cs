@@ -1,6 +1,7 @@
 using AndroidLanches.API.Domain.Repositories;
 using AndroidLanches.Domain.Infra;
 using AndroidLanches.Domain.Repositories;
+using AndroidLanches.Infra.DBConfiguration;
 using AndroidLanches.Infra.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,10 +29,13 @@ namespace AndroidLanches.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             IConfigurationSection dbConnectionSettings = DatabaseConnection.ConnectionConfiguration.GetSection("ConnectionStrings");
 
             services.AddControllers();
+            
+            //services.AddScoped<IDatabaseFactory, MySqlDatabaseFactory>();         // usando mysql
+            services.AddScoped<IDatabaseFactory, SqlServerDatabaseFactory>();       // usando sql Server
+            services.AddTransient<ICriadorBancoDeDados, CriadorBancoDeDadosSqlServer>();
             services.AddTransient<IPedidos,Pedidos>();
             services.AddTransient<IMesas, Mesas>();
             services.AddSwaggerGen(config =>

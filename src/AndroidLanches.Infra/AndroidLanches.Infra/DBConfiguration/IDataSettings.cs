@@ -4,5 +4,4 @@
     {
         string DefaultConnection { get; set; }
     }
-    
 }

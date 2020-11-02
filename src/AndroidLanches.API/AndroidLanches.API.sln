@@ -5,11 +5,9 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndroidLanches.API", "AndroidLanches.API\AndroidLanches.API.csproj", "{3F4E35AE-A7C7-4235-8C97-35FBBBD40B46}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndroidLanches.Config", "..\AndroidLanches.Config\AndroidLanches.Config\AndroidLanches.Config.csproj", "{82E2AE20-8D69-4C38-B05E-6159C85F36D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndroidLanches.Infra", "..\AndroidLanches.Infra\AndroidLanches.Infra\AndroidLanches.Infra.csproj", "{C5F1DB1F-0AD2-4383-A14D-FAB7A2FF6974}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndroidLanches.Infra", "..\AndroidLanches.Infra\AndroidLanches.Infra\AndroidLanches.Infra.csproj", "{C5F1DB1F-0AD2-4383-A14D-FAB7A2FF6974}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndroidLanches.Domain", "..\AndroidLanches.Domain\AndroidLanches.Domain\AndroidLanches.Domain.csproj", "{80C5172A-4DB5-442D-9353-020D9221E5F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndroidLanches.Domain", "..\AndroidLanches.Domain\AndroidLanches.Domain\AndroidLanches.Domain.csproj", "{80C5172A-4DB5-442D-9353-020D9221E5F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +19,6 @@ Global
 		{3F4E35AE-A7C7-4235-8C97-35FBBBD40B46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F4E35AE-A7C7-4235-8C97-35FBBBD40B46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F4E35AE-A7C7-4235-8C97-35FBBBD40B46}.Release|Any CPU.Build.0 = Release|Any CPU
-		{82E2AE20-8D69-4C38-B05E-6159C85F36D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{82E2AE20-8D69-4C38-B05E-6159C85F36D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{82E2AE20-8D69-4C38-B05E-6159C85F36D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{82E2AE20-8D69-4C38-B05E-6159C85F36D5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C5F1DB1F-0AD2-4383-A14D-FAB7A2FF6974}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C5F1DB1F-0AD2-4383-A14D-FAB7A2FF6974}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5F1DB1F-0AD2-4383-A14D-FAB7A2FF6974}.Release|Any CPU.ActiveCfg = Release|Any CPU

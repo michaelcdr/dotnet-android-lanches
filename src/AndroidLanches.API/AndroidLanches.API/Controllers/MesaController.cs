@@ -1,5 +1,4 @@
-﻿using AndroidLanches.API.Domain;
-using AndroidLanches.API.Domain.Repositories;
+﻿using AndroidLanches.API.Domain.Repositories;
 using AndroidLanches.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -15,34 +14,59 @@ namespace AndroidLanches.API.Controllers
     {
         private readonly ILogger<MesaController> _logger;
         private readonly IMesas _mesas;
+
         public MesaController(ILogger<MesaController> logger, IMesas mesas) 
         {
             _logger = logger;
             _mesas = mesas;
         }
 
-        [HttpGet]
-        public IEnumerable<Mesa> ObterDesocupadas()
+        /// <summary>
+        /// Retorna uma lista de mesas disponiveis
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet, Route("")]
+        public async Task<IEnumerable<Mesa>> ObterDesocupadas()
         {
-            var rng = new Random();
-            return _mesas.ObterDesocupadas();
+            return await _mesas.ObterDesocupadas();
         }
 
-        [HttpPost]
-        [Route("")]
-        public async Task<IActionResult> Post(Mesa mesa)
+        [HttpPost, Route("")]
+        public async Task<IActionResult> Post(int numero)
         {
             try
             {
-                await _mesas.Adicionar(mesa);
-                return Created("",new { });
+                await _mesas.Adicionar(new Mesa(numero));
+                return Created("", new { });
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
                 return BadRequest();
             }
-            
+        }
+
+        /// <summary>
+        /// Método responsavel por gerar mesas default do app
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("GerarMesas")]
+        public async Task<IActionResult> GerarMesas(int numeroDeMesas)
+        {
+            try
+            {
+                if (!await _mesas.TemAoMenosUma())
+                    for (int i = 1; i <= numeroDeMesas; i++)
+                        await _mesas.Adicionar(new Mesa(i));
+
+                return Created("", new { });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest();
+            }
         }
     }
 }

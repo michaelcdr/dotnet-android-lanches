@@ -6,7 +6,8 @@ namespace AndroidLanches.API.Domain.Repositories
 {
     public interface IMesas
     {
-        List<Mesa> ObterDesocupadas();
+        Task<List<Mesa>> ObterDesocupadas();
         Task Adicionar(Mesa mesa);
+        Task<bool> TemAoMenosUma();
     }
 }

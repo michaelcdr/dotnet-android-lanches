@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AndroidLanches.API.Domain;
-using AndroidLanches.API.Domain.Repositories;
-using AndroidLanches.Domain.Repositories;
+﻿using AndroidLanches.Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 

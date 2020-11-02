@@ -1,22 +1,21 @@
-﻿using Microsoft.Extensions.Configuration;
-using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Dapper;
+using System.Data;
 using System.Threading.Tasks;
 
-namespace AndroidLanches.Config
+namespace AndroidLanches.Infra.DBConfiguration
 {
-    public class CriadorBancoDeDados
-    {
-        private readonly IConfiguration _configuration;
-        private const string USUARIO_DB = "androidlanches";
-        private const string PWD_DB = "Teste@123";
-        private const string SCHEMA_DB = "android-lanches";
 
-        public CriadorBancoDeDados(IConfiguration configuration)
+    public class CriadorBancoDeDadosMySql : ICriadorBancoDeDados
+    {
+        private IDbConnection _dbConnection;
+        private readonly IDatabaseFactory _databaseFactory;
+        public CriadorBancoDeDadosMySql(IDatabaseFactory databaseOptions)
         {
-            _configuration = configuration;
+            _databaseFactory = databaseOptions;
+            _dbConnection = _databaseFactory.GetDbConnection;
+
+            if (_dbConnection.State == ConnectionState.Closed)
+                _dbConnection.Open();
         }
 
         public async Task Criar()
@@ -50,20 +49,7 @@ namespace AndroidLanches.Config
                     "FOREIGN KEY (produtoId) REFERENCES Produtos(produtoid)" +
                     ");";
 
-
-            using (var conn = new MySqlConnection($"Server=localhost;User Id={USUARIO_DB};Password={PWD_DB};Database={SCHEMA_DB};"))
-            {
-                if (conn.State == System.Data.ConnectionState.Closed)
-                    await conn.OpenAsync();
-
-                using (var comando = new MySqlCommand())
-                {
-                    comando.Connection = conn;
-                    comando.CommandText = sqlCreateTableMesa + sqlCreateTableProduto + sqlCreatePedidos + sqlCreatePedidosItens;
-                    await comando.ExecuteNonQueryAsync();
-                    Console.WriteLine("BANCO DE DADOS CRIADO COM SUCESSO");
-                }
-            }
+            await _dbConnection.ExecuteAsync(sqlCreateTableMesa + sqlCreateTableProduto + sqlCreatePedidos + sqlCreatePedidosItens);
         }
     }
 }

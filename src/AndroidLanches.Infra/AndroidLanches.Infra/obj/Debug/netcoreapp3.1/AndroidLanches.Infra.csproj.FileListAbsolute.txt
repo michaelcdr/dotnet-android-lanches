@@ -6,7 +6,7 @@ D:\Projetos\dotnet-android-lanches\src\AndroidLanches.Infra\AndroidLanches.Infra
 D:\Projetos\dotnet-android-lanches\src\AndroidLanches.Infra\AndroidLanches.Infra\bin\Debug\netcoreapp3.1\AndroidLanches.Infra.dll
 D:\Projetos\dotnet-android-lanches\src\AndroidLanches.Infra\AndroidLanches.Infra\bin\Debug\netcoreapp3.1\AndroidLanches.Infra.pdb
 D:\Projetos\dotnet-android-lanches\src\AndroidLanches.Infra\AndroidLanches.Infra\bin\Debug\netcoreapp3.1\AndroidLanches.Domain.pdb
-D:\Projetos\dotnet-android-lanches\src\AndroidLanches.Infra\AndroidLanches.Infra\obj\Debug\netcoreapp3.1\AndroidLanches.Infra.csproj.CoreCompileInputs.cache
 D:\Projetos\dotnet-android-lanches\src\AndroidLanches.Infra\AndroidLanches.Infra\obj\Debug\netcoreapp3.1\AndroidLanches.Infra.csproj.CopyComplete
 D:\Projetos\dotnet-android-lanches\src\AndroidLanches.Infra\AndroidLanches.Infra\obj\Debug\netcoreapp3.1\AndroidLanches.Infra.dll
 D:\Projetos\dotnet-android-lanches\src\AndroidLanches.Infra\AndroidLanches.Infra\obj\Debug\netcoreapp3.1\AndroidLanches.Infra.pdb
+D:\Projetos\dotnet-android-lanches\src\AndroidLanches.Infra\AndroidLanches.Infra\obj\Debug\netcoreapp3.1\AndroidLanches.Infra.csproj.CoreCompileInputs.cache
