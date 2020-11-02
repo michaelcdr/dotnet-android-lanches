@@ -1,6 +1,6 @@
-src/AndroidLanches.API/.vs
-src/AndroidLanches.Domain/.vs
-src/AndroidLanches.Infra/.vs
+src/AndroidLanches.API/.vs/
+src/AndroidLanches.Domain/.vs/
+src/AndroidLanches.Infra/.vs/
 src/AndroidLanches.API/AndroidLanches.API/bin
 src/AndroidLanches.Domain/AndroidLanches.Domain/bin
 src/AndroidLanches.Infra/AndroidLanches.Infra/bin
