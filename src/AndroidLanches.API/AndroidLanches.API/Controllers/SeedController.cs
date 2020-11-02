@@ -29,8 +29,6 @@ namespace AndroidLanches.API.Controllers
 
                 await _produtos.AdicionarBebida(new Bebida("Coca cola", "Zero", 8.0, "2 litros", "cocacola_zero_2l"));
                 await _produtos.AdicionarBebida(new Bebida("Coca cola", "Zero", 5.0, "600 ml", "cocacola_zero_600ml"));
-
-
                 await _produtos.AdicionarBebida(new Bebida("Coca cola", "Zero Lata", 3.5, "350 ml", "cocacola_zero_350ml"));
 
 
