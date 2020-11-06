@@ -1,16 +1,12 @@
 ﻿using AndroidLanches.Domain.Entities;
 using AndroidLanches.Domain.Repositories;
+using AndroidLanches.Infra.Repositories;
 using System.Collections.Generic;
 
 namespace AndroidLanches.Domain.Infra
 {
-    public class Pedidos:IPedidos
+    public class Pedidos : BaseRepository, IPedidos
     {
-        public Pedidos()
-        {
-
-        }
-
         public List<Pedido> ObterTodosPedidosSemPagamentoEfetuado()
         {
             var pedidos = new List<Pedido>();
