@@ -21,9 +21,5 @@
     <ProjectReference Include="..\..\AndroidLanches.Infra\AndroidLanches.Infra\AndroidLanches.Infra.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DTO\" />
-  </ItemGroup>
-
 
 </Project>

@@ -6,7 +6,7 @@
 
         protected Prato() { }
         
-        public Prato(string nome, string descricao, double preco, int serveQuantasPessoas, string foto)
+        public Prato(string nome, string descricao, decimal preco, int serveQuantasPessoas, string foto)
         {
             this.Tipo = "prato";
             this.Nome = nome;

@@ -43,7 +43,7 @@ namespace AndroidLanches.Infra.DBConfiguration
 	                                        AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
                                         CREATE TABLE [dbo].Pedidos ( 
 	                                        numero INT NOT NULL IDENTITY PRIMARY KEY , 
-	                                        pago INT, 
+	                                        pago INT NOT NULL, 
 	                                        gorjeta DECIMAL(10, 2), 
 	                                        mesaId INT 
                                         );";
@@ -55,7 +55,7 @@ namespace AndroidLanches.Infra.DBConfiguration
 	                                            numero INT NOT NULL, 
 	                                            quantidade INT NOT NULL, 
 	                                            produtoId INT NOT NULL, 
-	                                            FOREIGN KEY (quantidade) REFERENCES Pedidos(numero), 
+	                                            FOREIGN KEY (numero) REFERENCES Pedidos(numero), 
 	                                            FOREIGN KEY (produtoId) REFERENCES Produtos(produtoid) 
                                             );";
 

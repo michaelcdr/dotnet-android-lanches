@@ -34,20 +34,20 @@ namespace AndroidLanches.Infra.DBConfiguration
                                             );";
 
             string sqlCreatePedidos = @"CREATE TABLE IF NOT EXISTS  Pedidos (
-                                                  numero INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY , 
-                                                  pago INT(11), 
-                                                  gorjeta DECIMAL(10, 2), 
-                                                  mesaId INT(11) 
-                                            );";
+                numero INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY , 
+                pago BIT NOT NULL, 
+                gorjeta DECIMAL(10, 2), 
+                mesaId INT(11) 
+            );";
 
-            string sqlCreatePedidosItens = "CREATE TABLE IF NOT EXISTS  PedidosItens (" +
-                     " pedidoItemId INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY ," +
-                     " numero INT(11) NOT NULL, " +
-                     " quantidade INT(11) NOT NULL, " +
-                     " produtoId INT(11) NOT NULL, " +
-                    "FOREIGN KEY (quantidade) REFERENCES Pedidos(numero), " +
-                    "FOREIGN KEY (produtoId) REFERENCES Produtos(produtoid)" +
-                    ");";
+            string sqlCreatePedidosItens = @"CREATE TABLE IF NOT EXISTS  PedidosItens (
+                pedidoItemId INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+                numero INT(11) NOT NULL, 
+                quantidade INT(11) NOT NULL, 
+                produtoId INT(11) NOT NULL, 
+                FOREIGN KEY (numero) REFERENCES Pedidos(numero), 
+                FOREIGN KEY (produtoId) REFERENCES Produtos(produtoid)
+            );";
 
             await _dbConnection.ExecuteAsync(sqlCreateTableMesa + sqlCreateTableProduto + sqlCreatePedidos + sqlCreatePedidosItens);
         }

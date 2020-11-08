@@ -10,7 +10,7 @@ namespace AndroidLanches.API.Controllers
 {
     [ApiController]
     [Route("v1/Mesas")]
-    public class MesaController : ControllerBase
+    public class MesaController : ControllerBase, IDisposable
     {
         private readonly ILogger<MesaController> _logger;
         private readonly IMesas _mesas;
@@ -30,12 +30,6 @@ namespace AndroidLanches.API.Controllers
         {
             return await _mesas.ObterDesocupadas();
         }
-
-        //[HttpGet, Route("")]
-        //public async Task<IEnumerable<Mesa>> ObterTodas()
-        //{
-        //    return await _mesas.ObterTodas();
-        //}
 
         [HttpPost, Route("")]
         public async Task<IActionResult> Post(int numero)
@@ -81,6 +75,11 @@ namespace AndroidLanches.API.Controllers
                 _logger.LogError(ex.Message);
                 return BadRequest();
             }
+        }
+
+        public void Dispose()
+        {
+            _mesas.Dispose();
         }
     }
 }

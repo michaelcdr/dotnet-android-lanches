@@ -6,7 +6,7 @@
 
         protected Bebida() { }
 
-        public Bebida(string nome, string descricao, double preco, string embalagem, string foto)
+        public Bebida(string nome, string descricao, decimal preco, string embalagem, string foto)
         {
             this.Tipo = "bebida";
             this.Nome = nome;

@@ -1,24 +1,29 @@
 ﻿using AndroidLanches.API.Domain.Repositories;
 using AndroidLanches.Domain.Entities;
+using AndroidLanches.Infra.DBConfiguration;
 using Dapper;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace AndroidLanches.Infra.Repositories
 {
     public class Mesas: BaseRepository , IMesas
     {
+        public Mesas(IDatabaseFactory databaseFactory) : base(databaseFactory)
+        {
+
+        }
         public async Task<List<Mesa>> ObterDesocupadas()
         {
             var mesas = (await Conexao.QueryAsync<Mesa>
-                ("SELECT * FROM Mesas WHERE  MesaId NOT IN (SELECT MesaId From Pedidos WHERE PAGO = 0 GROUP BY MesaId) ORDER BY Numero")).ToList();
+                ("SELECT * FROM Mesas WHERE  MesaId NOT IN (SELECT MesaId From Pedidos WHERE PAGO = 0 GROUP BY MesaId) ORDER BY Numero")).AsList();
             return mesas;
         }
 
         public async Task Adicionar(Mesa mesa)
         {
-            await _dbConnection.ExecuteAsync("INSERT into Mesas(numero) values (@Numero)", new { mesa.Numero });            
+            await Conexao.ExecuteAsync("INSERT into Mesas(numero) values (@Numero)", new { mesa.Numero });            
         }
 
         public async Task<bool> TemAoMenosUma()
@@ -31,6 +36,20 @@ namespace AndroidLanches.Infra.Repositories
         {
             bool existe = await Conexao.QuerySingleAsync<bool>("select CAST(COUNT(*) AS BIT) FROM Mesas where numero = @numero;", new { numero });
             return existe;
+        }
+
+        public async Task<Mesa> ObterDesocupadaPorNumero(int numeroMesa)
+        {
+            return await Conexao.QuerySingleOrDefaultAsync<Mesa>
+                (@"SELECT * FROM Mesas WHERE  MesaId NOT IN (
+                        SELECT MesaId From Pedidos WHERE PAGO = 0 ) and numero = @numeroMesa",new { numeroMesa });
+        }
+
+        public void Dispose()
+        {
+            Conexao.Close();
+            Conexao.Dispose();
+            GC.SuppressFinalize(Conexao);
         }
     }
 }
