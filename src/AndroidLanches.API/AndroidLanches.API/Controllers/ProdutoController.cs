@@ -1,4 +1,5 @@
 ﻿using AndroidLanches.Domain.Entities;
+using AndroidLanches.Domain.Filtros;
 using AndroidLanches.Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -22,9 +23,9 @@ namespace AndroidLanches.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet, Route("Bebidas")]
-        public async Task<IEnumerable<Bebida>> ObterBebidas()
+        public async Task<IEnumerable<Bebida>> ObterBebidas([FromQuery] FiltrosBebida filtros)
         {
-            return await _produtos.ObterBebidas();
+            return await _produtos.ObterBebidas(filtros);
         }
 
         /// <summary>
@@ -32,9 +33,9 @@ namespace AndroidLanches.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet, Route("Pratos")]
-        public async Task<IEnumerable<Prato>> ObterPratos()
+        public async Task<IEnumerable<Prato>> ObterPratos([FromQuery] FiltrosPrato filtros)
         {
-            return await _produtos.ObterPratos();
+            return await _produtos.ObterPratos(filtros);
         }
     }
 }

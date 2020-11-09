@@ -54,28 +54,28 @@ namespace AndroidLanches.API.Controllers
         /// Método responsavel por gerar mesas default do app
         /// </summary>
         /// <returns></returns>
-        [HttpPost]
-        [Route("GerarMesas")]
-        public async Task<IActionResult> GerarMesas(int numeroDeMesas)
-        {
-            try
-            {
-                if (!await _mesas.TemAoMenosUma())
-                {
-                    for (int i = 1; i <= numeroDeMesas; i++)
-                        await _mesas.Adicionar(new Mesa(i));
-                }
-                else
-                    return BadRequest(new { erro = "A lista de mesas já foi gerada." });
+        //[HttpPost]
+        //[Route("GerarMesas")]
+        //public async Task<IActionResult> GerarMesas(int numeroDeMesas)
+        //{
+        //    try
+        //    {
+        //        if (!await _mesas.TemAoMenosUma())
+        //        {
+        //            for (int i = 1; i <= numeroDeMesas; i++)
+        //                await _mesas.Adicionar(new Mesa(i));
+        //        }
+        //        else
+        //            return BadRequest(new { erro = "A lista de mesas já foi gerada." });
 
-                return Created("", new { });
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex.Message);
-                return BadRequest();
-            }
-        }
+        //        return Created("", new { });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _logger.LogError(ex.Message);
+        //        return BadRequest();
+        //    }
+        //}
 
         public void Dispose()
         {

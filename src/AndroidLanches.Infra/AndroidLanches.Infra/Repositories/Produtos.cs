@@ -1,4 +1,5 @@
 ﻿using AndroidLanches.Domain.Entities;
+using AndroidLanches.Domain.Filtros;
 using AndroidLanches.Domain.Repositories;
 using AndroidLanches.Infra.DBConfiguration;
 using Dapper;
@@ -47,20 +48,57 @@ namespace AndroidLanches.Infra.Repositories
                 });
         }
 
-        public async Task<List<Bebida>> ObterBebidas()
+        public async Task<List<Bebida>> ObterBebidas(FiltrosBebida filtros)
         {
-            return (await Conexao.QueryAsync<Bebida>(
-                "SELECT produtoId, nome, descricao, preco, foto, embalagem, tipo " +
-                "FROM Produtos WHERE tipo = 'bebida' ORDER BY nome"
-            )).ToList();
+            string sql = "SELECT produtoId, nome, descricao, preco, foto, embalagem, tipo " +
+                "FROM Produtos WHERE tipo = 'bebida' ";
+
+            var values = new DynamicParameters();
+            if (!string.IsNullOrEmpty(filtros.Descricao))
+            {
+                sql += " and descricao like @Descricao ";
+                values.AddDynamicParams(new { Descricao = "%" + filtros.Descricao + "%" });
+            }
+
+            if (!string.IsNullOrEmpty(filtros.Nome))
+            {
+                sql += " and Nome like @Nome ";
+                values.AddDynamicParams(new { Nome = "%" + filtros.Nome + "%" });
+            }
+
+            if (!string.IsNullOrEmpty(filtros.Embalagem))
+            {
+                sql += " and Embalagem like @Embalagem ";
+                values.AddDynamicParams(new { Embalagem = "%" + filtros.Embalagem + "%" });
+            }
+
+            sql += " ORDER BY nome";
+            return (await Conexao.QueryAsync<Bebida>(sql, values)).ToList();
         }
 
-        public async Task<List<Prato>> ObterPratos()
+        public async Task<List<Prato>> ObterPratos(FiltrosPrato filtros)
         {
-            return (await Conexao.QueryAsync<Prato>(
-                "SELECT produtoId, nome, descricao, preco, foto, serveQuantasPessoas, tipo " +
-                "FROM produtos WHERE tipo = 'prato' ORDER BY nome"
-            )).ToList();
+            string sql = "SELECT produtoId, nome, descricao, preco, foto, serveQuantasPessoas, tipo " +
+                "FROM produtos WHERE tipo = 'prato' ";
+
+            var values = new DynamicParameters();
+
+            if (!string.IsNullOrEmpty(filtros.Descricao))
+            {
+                sql += " and descricao like @Descricao ";
+                values.AddDynamicParams(new { Descricao = "%" + filtros.Descricao + "%" });
+            }
+
+            if (!string.IsNullOrEmpty(filtros.Nome))
+            {
+                sql += " and Nome like @Nome ";
+                values.AddDynamicParams(new { Nome = "%" + filtros.Nome + "%" });
+            }
+
+            sql += " ORDER BY nome ";
+
+            return (await Conexao.QueryAsync<Prato>(sql, values)).ToList();
+
         }
         public void Dispose()
         {
