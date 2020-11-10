@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 
 namespace AndroidLanches.Infra.DBConfiguration
 {
-
     public class CriadorBancoDeDadosMySql : ICriadorBancoDeDados
     {
         private IDbConnection _dbConnection;
