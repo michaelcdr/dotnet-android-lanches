@@ -11,7 +11,8 @@ namespace AndroidLanches.Domain.Repositories
         Task<List<Pedido>> ObterTodos();
         Task<List<Pedido>> ObterTodosSemPagamentoEfetuado();
         Task<int> Criar(Pedido pedido);
-        Task DeletarItem(int numeroPedido, int idProduto);
+        Task<int> Criar(int mesaId, int produtoId);
+        Task AdicionarItem(int numeroPedido, int produtoId);
         Task IncrementarQuantidadeProduto(int pedidoItemId);
         Task DecrementarQuantidadeProduto(int pedidoItemId);
     }

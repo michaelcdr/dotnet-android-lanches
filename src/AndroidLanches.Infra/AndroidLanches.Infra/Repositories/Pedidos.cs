@@ -3,7 +3,6 @@ using AndroidLanches.Domain.Repositories;
 using AndroidLanches.Infra.DBConfiguration;
 using AndroidLanches.Infra.Repositories;
 using Dapper;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -15,30 +14,36 @@ namespace AndroidLanches.Domain.Infra
         {
 
         }
+
         public async Task<List<Pedido>> ObterTodosSemPagamentoEfetuado()
         {
-            return (await Conexao.QueryAsync<Pedido>(
+            List<Pedido> pedidos = (await Conexao.QueryAsync<Pedido>(
                    @"SELECT Pedidos.numero, Pedidos.pago, Mesas.mesaId, Mesas.numero as numeroMesa FROM Pedidos 
                 INNER JOIN Mesas  ON Pedidos.mesaId = Mesas.mesaId 
                 WHERE Pedidos.pago = 0 ORDER BY  Pedidos.numero")).AsList();
+
+            return pedidos;
         }
 
         public async Task<List<Pedido>> ObterTodos()
         {
-            return (await Conexao.QueryAsync<Pedido>(
-                @"SELECT Pedidos.numero, Pedidos.pago, Mesas.mesaId, Mesas.numero FROM Pedidos 
+            List<Pedido> pedidos = (await Conexao.QueryAsync<Pedido>(
+                @"SELECT Pedidos.numero, Pedidos.pago, Mesas.mesaId, Mesas.numero as numeroMesa FROM Pedidos 
                 INNER JOIN Mesas  ON Pedidos.mesaId = Mesas.mesaId 
-                ORDER BY  Pedidos.numero")).AsList(); 
+                ORDER BY  Pedidos.numero")).AsList();
+
+            return pedidos;
         }
 
         public async Task<Pedido> Obter(int numeroPedido)
         {
-            Pedido pedido =  await Conexao.QuerySingleAsync<Pedido>(
+            Pedido pedido =  await Conexao.QuerySingleOrDefaultAsync<Pedido>(
                 @"SELECT Pedidos.numero, Pedidos.pago, Mesas.mesaId, Mesas.numero as numeroMesa FROM Pedidos  
                 INNER JOIN Mesas  ON Pedidos.mesaId = Mesas.mesaId
                 WHERE Pedidos.numero = @numeroPedido; ", new { numeroPedido }
             );
-            
+            if (pedido == null) return pedido;
+
             List<PedidoItem> itens = await ObterItensPedido(numeroPedido);
             foreach (PedidoItem item in itens)
                 pedido.AdicionarItem(item);
@@ -82,7 +87,7 @@ namespace AndroidLanches.Domain.Infra
             return numeroPedido;
         }
 
-        public async Task AdicionarItem(int numeroPedido, PedidoItem item)
+        private async Task AdicionarItem(int numeroPedido, PedidoItem item)
         {
             await Conexao.ExecuteAsync(
                 @"INSERT INTO PedidosItens(numero, quantidade, produtoId) values 
@@ -93,14 +98,23 @@ namespace AndroidLanches.Domain.Infra
             });
         }
 
-        public async Task DeletarItem(int numeroPedido, int idProduto)
+        public async Task AdicionarItem(int numeroPedido, int produtoId)
         {
-            throw new System.NotImplementedException();
+            await Conexao.ExecuteAsync(
+                @"if (select quantidade from PedidosItens where produtoId = @produtoId and numero = @numeroPedido) is null
+	                INSERT INTO PedidosItens(numero, quantidade, produtoId) values (@numeroPedido, 1, @produtoId);
+                else
+	                UPDATE PedidosItens SET Quantidade = Quantidade + 1 where produtoId = @produtoId and numero = @numeroPedido", 
+                new { numeroPedido, produtoId }
+            );
         }
 
         public async Task IncrementarQuantidadeProduto(int pedidoItemId)
         {
-            await Conexao.ExecuteAsync("UPDATE PedidosItens SET Quantidade = Quantidade + 1 where pedidoItemId = @pedidoItemId;", new { pedidoItemId });
+            await Conexao.ExecuteAsync(
+                "UPDATE PedidosItens SET Quantidade = Quantidade + 1 where pedidoItemId = @pedidoItemId;",
+                new { pedidoItemId }
+            );
         }
 
         public async Task DecrementarQuantidadeProduto(int pedidoItemId)
@@ -113,6 +127,15 @@ namespace AndroidLanches.Domain.Infra
                 ", new { pedidoItemId });
         }
 
-        
+        public async Task<int> Criar(int mesaId, int produtoId)
+        {
+            int numeroPedido = await Conexao.QuerySingleAsync<int>(
+                @"INSERT INTO Pedidos(mesaId,Pago) values (@mesaId, 0);
+                SELECT CAST(SCOPE_IDENTITY() as int)", new { mesaId = mesaId });
+
+            await AdicionarItem(numeroPedido, new PedidoItem(produtoId,1));
+
+            return numeroPedido;
+        }
     }
 }

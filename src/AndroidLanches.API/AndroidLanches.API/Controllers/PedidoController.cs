@@ -18,11 +18,7 @@ namespace AndroidLanches.API.Controllers
         private readonly IPedidos _pedidos;
         private readonly IMesas _mesas;
 
-        public PedidoController(
-            ILogger<PedidoController> logger, 
-            IPedidos pedidos, 
-            IMesas mesas
-            )
+        public PedidoController(IPedidos pedidos, IMesas mesas, ILogger<PedidoController> logger)
         {
             _logger = logger;
             _pedidos = pedidos;
@@ -33,9 +29,22 @@ namespace AndroidLanches.API.Controllers
         public async Task<IActionResult> Get()
             => Ok(await _pedidos.ObterTodos());
 
-        [HttpGet,Route("ObterPorNumero/{numeroPedido}")]
+        [HttpGet, Route("ObterPorNumero/{numeroPedido}")]
         public async Task<IActionResult> Get(int numeroPedido)
-            => Ok(await _pedidos.Obter(numeroPedido));
+        {
+            try
+            {
+                Pedido pedido = await _pedidos.Obter(numeroPedido);
+                if (pedido == null) return NotFound();
+
+                return Ok(pedido);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest();
+            }
+        }
 
         [HttpGet,Route("ObterTodosSemPagamentoEfetuado")]
         public async Task<IActionResult> ObterTodosSemPagamentoEfetuado()
@@ -55,6 +64,42 @@ namespace AndroidLanches.API.Controllers
                 int pedidoId = await _pedidos.Criar(new Pedido(mesa, itens));
 
                 return Created("", new { pedidoId });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest();
+            }
+        }
+
+        [HttpPost, Route("{mesaId}/{produtoId}")]
+        public async Task<IActionResult> Criar(int mesaId, int produtoId)
+        {
+            try
+            {
+                Mesa mesa = await _mesas.ObterDesocupadaPorId(mesaId);
+
+                if (mesa == null) return BadRequest(new { erro = "Mesa indisponivel" });
+
+                int pedidoId = await _pedidos.Criar(mesaId, produtoId);
+
+                return Created("", pedidoId);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest();
+            }
+        }
+
+        [HttpPost, Route("AdicionarItem/{numeroPedido}/{produtoId}")]
+        public async Task<IActionResult> AdicionarItem(int numeroPedido, int produtoId)
+        {
+            try
+            {
+                await _pedidos.AdicionarItem(numeroPedido, produtoId);
+
+                return Ok();
             }
             catch (Exception ex)
             {

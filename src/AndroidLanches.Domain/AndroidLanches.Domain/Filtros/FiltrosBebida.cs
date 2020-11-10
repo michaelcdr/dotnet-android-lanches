@@ -2,9 +2,9 @@
 {
     public class FiltrosBebida
     {
-        public string Embalagem { get; set; }
-        public string Nome { get; set; }
-        public string Descricao { get; set; }
+        public string embalagem { get; set; }
+        public string nome { get; set; }
+        public string descricao { get; set; }
     }
 
     public class FiltrosPrato

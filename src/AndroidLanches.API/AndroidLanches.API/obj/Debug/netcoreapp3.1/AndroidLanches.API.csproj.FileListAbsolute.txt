@@ -111,9 +111,6 @@ D:\Projetos\dotnet-android-lanches\src\AndroidLanches.API\AndroidLanches.API\bin
 D:\Projetos\dotnet-android-lanches\src\AndroidLanches.API\AndroidLanches.API\obj\Debug\netcoreapp3.1\AndroidLanches.API.csprojAssemblyReference.cache
 D:\Projetos\dotnet-android-lanches\src\AndroidLanches.API\AndroidLanches.API\obj\Debug\netcoreapp3.1\AndroidLanches.API.AssemblyInfoInputs.cache
 D:\Projetos\dotnet-android-lanches\src\AndroidLanches.API\AndroidLanches.API\obj\Debug\netcoreapp3.1\AndroidLanches.API.AssemblyInfo.cs
-D:\Projetos\dotnet-android-lanches\src\AndroidLanches.API\AndroidLanches.API\obj\Debug\netcoreapp3.1\AndroidLanches.API.csproj.CoreCompileInputs.cache
-D:\Projetos\dotnet-android-lanches\src\AndroidLanches.API\AndroidLanches.API\obj\Debug\netcoreapp3.1\AndroidLanches.API.MvcApplicationPartsAssemblyInfo.cs
-D:\Projetos\dotnet-android-lanches\src\AndroidLanches.API\AndroidLanches.API\obj\Debug\netcoreapp3.1\AndroidLanches.API.MvcApplicationPartsAssemblyInfo.cache
 D:\Projetos\dotnet-android-lanches\src\AndroidLanches.API\AndroidLanches.API\obj\Debug\netcoreapp3.1\AndroidLanches.API.RazorTargetAssemblyInfo.cache
 D:\Projetos\dotnet-android-lanches\src\AndroidLanches.API\AndroidLanches.API\obj\Debug\netcoreapp3.1\AndroidLanches.API.csproj.CopyComplete
 D:\Projetos\dotnet-android-lanches\src\AndroidLanches.API\AndroidLanches.API\obj\Debug\netcoreapp3.1\staticwebassets\AndroidLanches.API.StaticWebAssets.Manifest.cache
@@ -121,3 +118,6 @@ D:\Projetos\dotnet-android-lanches\src\AndroidLanches.API\AndroidLanches.API\obj
 D:\Projetos\dotnet-android-lanches\src\AndroidLanches.API\AndroidLanches.API\obj\Debug\netcoreapp3.1\AndroidLanches.API.dll
 D:\Projetos\dotnet-android-lanches\src\AndroidLanches.API\AndroidLanches.API\obj\Debug\netcoreapp3.1\AndroidLanches.API.pdb
 D:\Projetos\dotnet-android-lanches\src\AndroidLanches.API\AndroidLanches.API\obj\Debug\netcoreapp3.1\AndroidLanches.API.genruntimeconfig.cache
+D:\Projetos\dotnet-android-lanches\src\AndroidLanches.API\AndroidLanches.API\obj\Debug\netcoreapp3.1\AndroidLanches.API.csproj.CoreCompileInputs.cache
+D:\Projetos\dotnet-android-lanches\src\AndroidLanches.API\AndroidLanches.API\obj\Debug\netcoreapp3.1\AndroidLanches.API.MvcApplicationPartsAssemblyInfo.cs
+D:\Projetos\dotnet-android-lanches\src\AndroidLanches.API\AndroidLanches.API\obj\Debug\netcoreapp3.1\AndroidLanches.API.MvcApplicationPartsAssemblyInfo.cache

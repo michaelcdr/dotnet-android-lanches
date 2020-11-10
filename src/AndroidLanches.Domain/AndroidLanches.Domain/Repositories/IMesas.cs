@@ -12,5 +12,6 @@ namespace AndroidLanches.API.Domain.Repositories
         Task<bool> TemAoMenosUma();
         Task<bool> Existe(int numero);
         Task<Mesa> ObterDesocupadaPorNumero(int numeroMesa);
+        Task<Mesa> ObterDesocupadaPorId(int mesaId);
     }
 }

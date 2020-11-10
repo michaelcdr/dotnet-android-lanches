@@ -5,7 +5,6 @@ using AndroidLanches.Infra.DBConfiguration;
 using Dapper;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -54,22 +53,22 @@ namespace AndroidLanches.Infra.Repositories
                 "FROM Produtos WHERE tipo = 'bebida' ";
 
             var values = new DynamicParameters();
-            if (!string.IsNullOrEmpty(filtros.Descricao))
+            if (!string.IsNullOrEmpty(filtros.descricao))
             {
                 sql += " and descricao like @Descricao ";
-                values.AddDynamicParams(new { Descricao = "%" + filtros.Descricao + "%" });
+                values.AddDynamicParams(new { Descricao = "%" + filtros.descricao + "%" });
             }
 
-            if (!string.IsNullOrEmpty(filtros.Nome))
+            if (!string.IsNullOrEmpty(filtros.nome))
             {
                 sql += " and Nome like @Nome ";
-                values.AddDynamicParams(new { Nome = "%" + filtros.Nome + "%" });
+                values.AddDynamicParams(new { Nome = "%" + filtros.nome + "%" });
             }
 
-            if (!string.IsNullOrEmpty(filtros.Embalagem))
+            if (!string.IsNullOrEmpty(filtros.embalagem))
             {
                 sql += " and Embalagem like @Embalagem ";
-                values.AddDynamicParams(new { Embalagem = "%" + filtros.Embalagem + "%" });
+                values.AddDynamicParams(new { Embalagem = "%" + filtros.embalagem + "%" });
             }
 
             sql += " ORDER BY nome";

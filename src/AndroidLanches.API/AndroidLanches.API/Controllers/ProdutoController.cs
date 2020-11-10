@@ -2,6 +2,8 @@
 using AndroidLanches.Domain.Filtros;
 using AndroidLanches.Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -9,11 +11,11 @@ namespace AndroidLanches.API.Controllers
 {
     [ApiController]
     [Route("v1/Produtos")]
-    public class ProdutoController : Controller
+    public class ProdutoController : BaseControllerApi<ProdutoController>, IDisposable
     {
         private readonly IProdutos _produtos;
 
-        public ProdutoController(IProdutos produtos)
+        public ProdutoController(ILogger<ProdutoController> logger, IProdutos produtos):base(logger)
         {
             _produtos = produtos;
         }
@@ -23,9 +25,9 @@ namespace AndroidLanches.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet, Route("Bebidas")]
-        public async Task<IEnumerable<Bebida>> ObterBebidas([FromQuery] FiltrosBebida filtros)
+        public async Task<IEnumerable<Bebida>> ObterBebidas([FromQuery] FiltrosBebida parameters)
         {
-            return await _produtos.ObterBebidas(filtros);
+            return await _produtos.ObterBebidas(parameters);
         }
 
         /// <summary>
@@ -36,6 +38,11 @@ namespace AndroidLanches.API.Controllers
         public async Task<IEnumerable<Prato>> ObterPratos([FromQuery] FiltrosPrato filtros)
         {
             return await _produtos.ObterPratos(filtros);
+        }
+
+        public void Dispose()
+        {
+            
         }
     }
 }
