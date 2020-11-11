@@ -120,7 +120,7 @@ namespace AndroidLanches.Domain.Infra
         public async Task DecrementarQuantidadeProduto(int pedidoItemId)
         {
             await Conexao.ExecuteAsync(
-                @"if (select quantidade from PedidosItens where pedidoItemId = @pedidoItemId) = 0
+                @"if (select quantidade from PedidosItens where pedidoItemId = @pedidoItemId) = 1
 	                delete from PedidosItens where pedidoItemId = @pedidoItemId;
                 else 
 	                UPDATE PedidosItens SET Quantidade = Quantidade - 1 where pedidoItemId = @pedidoItemId;
