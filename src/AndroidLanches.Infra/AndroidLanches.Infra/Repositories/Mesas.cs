@@ -14,6 +14,7 @@ namespace AndroidLanches.Infra.Repositories
         {
 
         }
+
         public async Task<List<Mesa>> ObterDesocupadas()
         {
             var mesas = (await Conexao.QueryAsync<Mesa>
@@ -45,18 +46,18 @@ namespace AndroidLanches.Infra.Repositories
                         SELECT MesaId From Pedidos WHERE PAGO = 0 ) and numero = @numeroMesa",new { numeroMesa });
         }
 
-        public void Dispose()
-        {
-            Conexao.Close();
-            Conexao.Dispose();
-            GC.SuppressFinalize(Conexao);
-        }
-
         public async Task<Mesa> ObterDesocupadaPorId(int mesaId)
         {
             return await Conexao.QuerySingleOrDefaultAsync<Mesa>
               (@"SELECT * FROM Mesas WHERE  MesaId NOT IN (
                         SELECT MesaId From Pedidos WHERE PAGO = 0 ) and MesaId = @mesaId", new { mesaId });
+        }
+
+        public void Dispose()
+        {
+            Conexao.Close();
+            Conexao.Dispose();
+            GC.SuppressFinalize(Conexao);
         }
     }
 }

@@ -97,11 +97,12 @@ namespace AndroidLanches.Infra.Repositories
             sql += " ORDER BY nome ";
 
             return (await Conexao.QueryAsync<Prato>(sql, values)).ToList();
-
         }
+
         public void Dispose()
         {
             Conexao.Close();
+            Conexao.Dispose();
             GC.SuppressFinalize(Conexao);
         }
     }

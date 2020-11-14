@@ -42,7 +42,7 @@ namespace AndroidLanches.API.Controllers
 
         public void Dispose()
         {
-            
+            _produtos.Dispose();
         }
     }
 }

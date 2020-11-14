@@ -3,6 +3,7 @@ using AndroidLanches.Domain.Repositories;
 using AndroidLanches.Infra.DBConfiguration;
 using AndroidLanches.Infra.Repositories;
 using Dapper;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -136,6 +137,13 @@ namespace AndroidLanches.Domain.Infra
             await AdicionarItem(numeroPedido, new PedidoItem(produtoId,1));
 
             return numeroPedido;
+        }
+
+        public void Dispose()
+        {
+            Conexao.Close();
+            Conexao.Dispose();
+            GC.SuppressFinalize(Conexao);
         }
     }
 }

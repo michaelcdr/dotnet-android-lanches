@@ -11,5 +11,6 @@ namespace AndroidLanches.Domain.Repositories
         Task AdicionarPrato(Prato produto);
         Task<List<Bebida>> ObterBebidas(FiltrosBebida filtros);
         Task<List<Prato>> ObterPratos(FiltrosPrato filtros);
+        void Dispose();
     }
 }
