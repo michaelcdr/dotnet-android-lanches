@@ -42,9 +42,10 @@ namespace AndroidLanches.Infra.DBConfiguration
             string sqlCreatePedidos = @"IF	NOT EXISTS (SELECT * FROM sysobjects WHERE id = object_id(N'[dbo].[Pedidos]')
 	                                        AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
                                         CREATE TABLE [dbo].Pedidos ( 
-	                                        numero INT NOT NULL IDENTITY PRIMARY KEY , 
+	                                        pedidoId INT NOT NULL IDENTITY PRIMARY KEY , 
+                                            numero BIGINT NOT NULL, 
 	                                        pago INT NOT NULL, 
-	                                        gorjeta DECIMAL(10, 2), 
+	                                        gorjeta INT, 
 	                                        mesaId INT 
                                         );";
 
@@ -52,10 +53,10 @@ namespace AndroidLanches.Infra.DBConfiguration
 	                                            AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
                                              CREATE TABLE [dbo].PedidosItens ( 
 	                                            pedidoItemId INT NOT NULL IDENTITY PRIMARY KEY ,
-	                                            numero INT NOT NULL, 
+	                                            pedidoId INT NOT NULL, 
 	                                            quantidade INT NOT NULL, 
 	                                            produtoId INT NOT NULL, 
-	                                            FOREIGN KEY (numero) REFERENCES Pedidos(numero), 
+	                                            FOREIGN KEY (pedidoId) REFERENCES Pedidos(pedidoId), 
 	                                            FOREIGN KEY (produtoId) REFERENCES Produtos(produtoid) 
                                             );";
 

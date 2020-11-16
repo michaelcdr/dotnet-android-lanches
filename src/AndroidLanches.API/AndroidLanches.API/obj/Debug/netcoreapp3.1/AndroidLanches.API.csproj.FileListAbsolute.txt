@@ -121,3 +121,5 @@ D:\Projetos\dotnet-android-lanches\src\AndroidLanches.API\AndroidLanches.API\obj
 D:\Projetos\dotnet-android-lanches\src\AndroidLanches.API\AndroidLanches.API\obj\Debug\netcoreapp3.1\AndroidLanches.API.csproj.CoreCompileInputs.cache
 D:\Projetos\dotnet-android-lanches\src\AndroidLanches.API\AndroidLanches.API\obj\Debug\netcoreapp3.1\AndroidLanches.API.MvcApplicationPartsAssemblyInfo.cs
 D:\Projetos\dotnet-android-lanches\src\AndroidLanches.API\AndroidLanches.API\obj\Debug\netcoreapp3.1\AndroidLanches.API.MvcApplicationPartsAssemblyInfo.cache
+D:\Projetos\dotnet-android-lanches\src\AndroidLanches.API\AndroidLanches.API\bin\Debug\netcoreapp3.1\AndroidLanches.API.xml
+D:\Projetos\dotnet-android-lanches\src\AndroidLanches.API\AndroidLanches.API\obj\Debug\netcoreapp3.1\AndroidLanches.API.xml

@@ -6,14 +6,16 @@ namespace AndroidLanches.Domain.Repositories
 {
     public interface IPedidos
     {
-        Task<Pedido> Obter(int numeroPedido);
-        Task<List<PedidoItem>> ObterItensPedido(int numeroPedido);
+        Task<Pedido> Obter(long numeroPedido);
+        Task<List<PedidoItem>> ObterItensPedido(long numeroPedido);
         Task<List<Pedido>> ObterTodos();
         Task<List<Pedido>> ObterTodosSemPagamentoEfetuado();
-        Task<int> Criar(Pedido pedido);
-        Task<int> Criar(int mesaId, int produtoId);
-        Task AdicionarItem(int numeroPedido, int produtoId);
+        Task<long> Criar(Pedido pedido);
+        Task<long> Criar(int mesaId, int produtoId);
+        Task AdicionarItem(long numeroPedido, int produtoId);
         Task IncrementarQuantidadeProduto(int pedidoItemId);
         Task DecrementarQuantidadeProduto(int pedidoItemId);
+        Task Pagar(long numeroPedido);
+        Task PagarComGorjeta(long numeroPedido);
     }
 }

@@ -30,7 +30,7 @@ namespace AndroidLanches.API.Controllers
             => Ok(await _pedidos.ObterTodos());
 
         [HttpGet, Route("ObterPorNumero/{numeroPedido}")]
-        public async Task<IActionResult> Get(int numeroPedido)
+        public async Task<IActionResult> Get(long numeroPedido)
         {
             try
             {
@@ -55,20 +55,20 @@ namespace AndroidLanches.API.Controllers
         {
             try
             {
-                List<PedidoItem> itens = model.Item.Select(e => new PedidoItem(e.ProdutoId, e.Quantidade)).ToList();
+                var itens = model.Item.Select(e => new PedidoItem(e.ProdutoId, e.Quantidade)).ToList();
 
                 Mesa mesa = await _mesas.ObterDesocupadaPorNumero(model.NumeroMesa);
 
                 if (mesa == null) return BadRequest(new { erro = "Mesa indisponivel" });
 
-                int pedidoId = await _pedidos.Criar(new Pedido(mesa, itens));
+                long numeroPedido = await _pedidos.Criar(new Pedido(mesa, itens));
 
-                return Created("", new { pedidoId });
+                return Created("", new { numeroPedido });
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
-                return BadRequest();
+                return BadRequest(new { erro = "Não foi possível criar o pedido."});
             }
         }
 
@@ -81,9 +81,9 @@ namespace AndroidLanches.API.Controllers
 
                 if (mesa == null) return BadRequest(new { erro = "Mesa indisponivel" });
 
-                int pedidoId = await _pedidos.Criar(mesaId, produtoId);
+                var numeroPedido = await _pedidos.Criar(mesaId, produtoId);
 
-                return Created("", pedidoId);
+                return Created("", numeroPedido);
             }
             catch (Exception ex)
             {
@@ -93,7 +93,7 @@ namespace AndroidLanches.API.Controllers
         }
 
         [HttpPost, Route("AdicionarItem/{numeroPedido}/{produtoId}")]
-        public async Task<IActionResult> AdicionarItem(int numeroPedido, int produtoId)
+        public async Task<IActionResult> AdicionarItem(long numeroPedido, int produtoId)
         {
             try
             {
@@ -129,6 +129,43 @@ namespace AndroidLanches.API.Controllers
             try
             {
                 await _pedidos.DecrementarQuantidadeProduto(pedidoItemId);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest(new { erro = "Não foi possivel atualizar a quantidade do produto." });
+            }
+        }
+
+        [HttpPut, Route("Pagar/{numeroPedido}")]
+        public async Task<IActionResult> Pagar(long numeroPedido)
+        {
+            try
+            {
+                Pedido pedido = await _pedidos.Obter(numeroPedido);
+                if (pedido.Pago)
+                    return BadRequest(new { erro = "Pedido já está pago." });
+
+                await _pedidos.Pagar(numeroPedido);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest(new { erro = "Não foi possivel atualizar a quantidade do produto." });
+            }
+        }
+
+        [HttpPut, Route("PagarComGorjeta/{numeroPedido}")]
+        public async Task<IActionResult> PagarComGorjeta(long numeroPedido)
+        {
+            try
+            {
+                Pedido pedido = await _pedidos.Obter(numeroPedido);
+                if (pedido.Pago)
+                    return BadRequest(new { erro = "Pedido já está pago." });
+                await _pedidos.PagarComGorjeta(numeroPedido);
                 return Ok();
             }
             catch (Exception ex)

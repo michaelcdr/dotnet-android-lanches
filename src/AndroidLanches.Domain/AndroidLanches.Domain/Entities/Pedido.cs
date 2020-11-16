@@ -1,19 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace AndroidLanches.Domain.Entities
 {
     public class Pedido
     {
-        public int Numero { get; private set; }
+        public int PedidoId { get; private set; }
+        public long Numero { get; private set; }
         public bool Pago { get; private set; }
         public Mesa Mesa { get; private set; }
-        public double Gorjeta { get; private set; }
+        public bool Gorjeta { get; private set; }
         public List<PedidoItem> Itens { get; private set; }
 
-        public Pedido(int numero, bool pago, int mesaId, int numeroMesa)
+        public Pedido(int pedidoId, long numero, bool pago, int mesaId, int numeroMesa)
         {
+            this.PedidoId = pedidoId;
             this.Numero = numero;
             this.Pago = pago;
             this.Mesa = new Mesa(mesaId, numeroMesa);

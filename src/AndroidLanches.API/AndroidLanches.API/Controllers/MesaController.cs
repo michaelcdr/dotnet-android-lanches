@@ -34,6 +34,8 @@ namespace AndroidLanches.API.Controllers
         {
             try
             {
+                if (numero == 0) return BadRequest("O numero deve ser maior que 0.");
+
                 if (!await _mesas.Existe(numero))
                     await _mesas.Adicionar(new Mesa(numero));
                 else
