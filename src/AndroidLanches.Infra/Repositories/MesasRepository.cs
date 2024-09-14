@@ -18,7 +18,8 @@ namespace AndroidLanches.Infra.Repositories
         public async Task<List<Mesa>> ObterDesocupadas()
         {
             var mesas = (await Conexao.QueryAsync<Mesa>
-                ("SELECT * FROM Mesas WHERE  MesaId NOT IN (SELECT MesaId From Pedidos WHERE PAGO = 0 GROUP BY MesaId) ORDER BY Numero")).AsList();
+                ("SELECT * FROM Mesas WHERE  MesaId NOT IN (SELECT MesaId From Pedidos WHERE PAGO = 0 GROUP BY MesaId) ORDER BY Numero")
+            ).AsList();
             
             return mesas;
         }

@@ -5,7 +5,6 @@ using AndroidLanches.Infra.DBConfiguration;
 using AndroidLanches.Infra.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -15,81 +14,80 @@ using System.IO;
 using System.Reflection;
 
 
-namespace AndroidLanches.API
+namespace AndroidLanches.API;
+
+public class Startup
 {
-    public class Startup
+    public Startup(IConfiguration configuration)
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+        Configuration = configuration;
+    }
 
-        public IConfiguration Configuration { get; }
-     
-        public void ConfigureServices(IServiceCollection services)
+    public IConfiguration Configuration { get; }
+ 
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddControllers();
+        
+        //services.AddScoped<IDatabaseFactory, MySqlDatabaseFactory>();                 // usando mysql
+        services.AddScoped<IDatabaseFactory, SqlServerDatabaseFactory>();               // usando sql Server
+        services.AddTransient<ICriadorBancoDeDados, CriadorBancoDeDadosSqlServer>();
+        services.AddTransient<IPedidosRepository, PedidosRepository>();
+        services.AddTransient<IMesasRepository, MesasRepository>();
+        services.AddTransient<IProdutosRepository, ProdutosRepository>();
+        
+        services.AddSwaggerGen(config =>
         {
-            services.AddControllers();
-            
-            //services.AddScoped<IDatabaseFactory, MySqlDatabaseFactory>();                 // usando mysql
-            services.AddScoped<IDatabaseFactory, SqlServerDatabaseFactory>();               // usando sql Server
-            services.AddTransient<ICriadorBancoDeDados, CriadorBancoDeDadosSqlServer>();
-            services.AddTransient<IPedidosRepository, PedidosRepository>();
-            services.AddTransient<IMesasRepository, MesasRepository>();
-            services.AddTransient<IProdutosRepository, ProdutosRepository>();
-            
-            services.AddSwaggerGen(config =>
+            config.SwaggerDoc("v1", new OpenApiInfo
             {
-                config.SwaggerDoc("v1", new OpenApiInfo
+                Title = "Android Lanches API",
+                Version = "v1",
+                Description = "API REST criada com o ASP.NET Core para o Sistema Android Lanches",
+                Contact = new OpenApiContact
                 {
-                    Title = "Android Lanches API",
-                    Version = "v1",
-                    Description = "API REST criada com o ASP.NET Core para o Sistema Android Lanches",
-                    Contact = new OpenApiContact
-                    {
-                        Name = "Michael Costa dos Reis",
-                        Url = new Uri("https://github.com/michaelcdr")
-                    }
-                });
-
-                //config.OperationFilter<ApiKeyHeaderFilter>();
-                //config.SchemaFilter<NullableTypeSchemaFilter>();
-
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                config.IncludeXmlComments(xmlPath);
-                //config.OperationFilter<FormFileSwaggerFilter>();
+                    Name = "Michael Costa dos Reis",
+                    Url = new Uri("https://github.com/michaelcdr")
+                }
             });
 
-            services.AddApiVersioning(options =>
-            {
-                options.DefaultApiVersion = new ApiVersion(1, 0);
-                options.AssumeDefaultVersionWhenUnspecified = true;
-                options.ReportApiVersions = true;
-            });
-        }
+            //config.OperationFilter<ApiKeyHeaderFilter>();
+            //config.SchemaFilter<NullableTypeSchemaFilter>();
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+            var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+            var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+            config.IncludeXmlComments(xmlPath);
+            //config.OperationFilter<FormFileSwaggerFilter>();
+        });
+
+        services.AddApiVersioning(options =>
         {
-            if (env.IsDevelopment())  app.UseDeveloperExceptionPage();
+            options.DefaultApiVersion = new Asp.Versioning.ApiVersion(1, 0);
+            options.AssumeDefaultVersionWhenUnspecified = true;
+            options.ReportApiVersions = true;
+        });
+    }
 
-            app.UseHttpsRedirection();
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment())  app.UseDeveloperExceptionPage();
 
-            app.UseRouting();
+        app.UseHttpsRedirection();
 
-            app.UseAuthorization();
+        app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+        app.UseAuthorization();
 
-            app.UseSwagger();
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllers();
+        });
 
-            app.UseSwaggerUI(c => {
-                c.SwaggerEndpoint(
-                    "/swagger/v1/swagger.json", "Android Lanches V1"
-                );
-            });
-        }
+        app.UseSwagger();
+
+        app.UseSwaggerUI(c => {
+            c.SwaggerEndpoint(
+                "/swagger/v1/swagger.json", "Android Lanches V1"
+            );
+        });
     }
 }
