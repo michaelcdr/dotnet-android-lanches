@@ -20,6 +20,7 @@ public class MesaController : BaseControllerApi<MesaController>, IDisposable
         _mesasRepository = mesas;
     }
 
+
     /// <summary>
     /// Retorna uma lista de mesas disponiveis.
     /// </summary>
