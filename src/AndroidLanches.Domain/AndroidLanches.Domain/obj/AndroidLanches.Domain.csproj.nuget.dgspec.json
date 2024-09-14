@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projetos\\dotnet-android-lanches\\src\\AndroidLanches.Domain\\AndroidLanches.Domain\\AndroidLanches.Domain.csproj": {}
+    "F:\\dev\\projects\\dotnet-android-lanches\\src\\AndroidLanches.Domain\\AndroidLanches.Domain\\AndroidLanches.Domain.csproj": {}
   },
   "projects": {
-    "D:\\Projetos\\dotnet-android-lanches\\src\\AndroidLanches.Domain\\AndroidLanches.Domain\\AndroidLanches.Domain.csproj": {
+    "F:\\dev\\projects\\dotnet-android-lanches\\src\\AndroidLanches.Domain\\AndroidLanches.Domain\\AndroidLanches.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projetos\\dotnet-android-lanches\\src\\AndroidLanches.Domain\\AndroidLanches.Domain\\AndroidLanches.Domain.csproj",
+        "projectUniqueName": "F:\\dev\\projects\\dotnet-android-lanches\\src\\AndroidLanches.Domain\\AndroidLanches.Domain\\AndroidLanches.Domain.csproj",
         "projectName": "AndroidLanches.Domain",
-        "projectPath": "D:\\Projetos\\dotnet-android-lanches\\src\\AndroidLanches.Domain\\AndroidLanches.Domain\\AndroidLanches.Domain.csproj",
-        "packagesPath": "C:\\Users\\michael\\.nuget\\packages\\",
-        "outputPath": "D:\\Projetos\\dotnet-android-lanches\\src\\AndroidLanches.Domain\\AndroidLanches.Domain\\obj\\",
+        "projectPath": "F:\\dev\\projects\\dotnet-android-lanches\\src\\AndroidLanches.Domain\\AndroidLanches.Domain\\AndroidLanches.Domain.csproj",
+        "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
+        "outputPath": "F:\\dev\\projects\\dotnet-android-lanches\\src\\AndroidLanches.Domain\\AndroidLanches.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\michael\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,10 +26,12 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -36,17 +39,24 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -55,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }

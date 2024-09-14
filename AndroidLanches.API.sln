@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndroidLanches.API", "src\AndroidLanches.API\AndroidLanches.API.csproj", "{2E3A5E08-D096-497F-A41D-197870CFA43F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndroidLanches.Domain", "src\AndroidLanches.Domain\AndroidLanches.Domain.csproj", "{F9EB6311-A443-4D0F-96D9-06B85FFA57F2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndroidLanches.Infra", "src\AndroidLanches.Infra\AndroidLanches.Infra.csproj", "{5F50D700-E58A-49FB-9798-457C944D3CBF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E3A5E08-D096-497F-A41D-197870CFA43F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E3A5E08-D096-497F-A41D-197870CFA43F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E3A5E08-D096-497F-A41D-197870CFA43F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E3A5E08-D096-497F-A41D-197870CFA43F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9EB6311-A443-4D0F-96D9-06B85FFA57F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9EB6311-A443-4D0F-96D9-06B85FFA57F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9EB6311-A443-4D0F-96D9-06B85FFA57F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9EB6311-A443-4D0F-96D9-06B85FFA57F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F50D700-E58A-49FB-9798-457C944D3CBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F50D700-E58A-49FB-9798-457C944D3CBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F50D700-E58A-49FB-9798-457C944D3CBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F50D700-E58A-49FB-9798-457C944D3CBF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD4E4665-A9FF-48F8-B29D-B0EF36F3341E}
+	EndGlobalSection
+EndGlobal

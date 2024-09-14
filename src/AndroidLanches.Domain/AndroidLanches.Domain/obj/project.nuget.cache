@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EuABIQP4qA7+hC3K5CMFxmE1IYvCBG1fp8noBXVrW25IM6G57HlUEzddS/uF/NfDqUEFIut6Phf2uQwpVuiLVQ==",
+  "dgSpecHash": "+t1PIgYO3qM=",
   "success": true,
-  "projectFilePath": "D:\\Projetos\\dotnet-android-lanches\\src\\AndroidLanches.Domain\\AndroidLanches.Domain\\AndroidLanches.Domain.csproj",
+  "projectFilePath": "F:\\dev\\projects\\dotnet-android-lanches\\src\\AndroidLanches.Domain\\AndroidLanches.Domain\\AndroidLanches.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
